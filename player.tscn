@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbh72aoqi6aex"]
+
+[ext_resource type="Texture2D" uid="uid://hcj58h85pl8n" path="res://assets/Player_Sprite.png" id="1_dl708"]
+[ext_resource type="Script" path="res://player.gd" id="1_iu0wx"]
+[ext_resource type="Shader" path="res://player.gdshader" id="1_ttrcn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_seq3d"]
+shader = ExtResource("1_ttrcn")
+shader_parameter/make_white = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q0u2"]
+size = Vector2(6, 13)
+
+[node name="Player" type="Area2D"]
+material = SubResource("ShaderMaterial_seq3d")
+scale = Vector2(1.00262, 1)
+script = ExtResource("1_iu0wx")
+friction = 1.1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 3
+use_parent_material = true
+scale = Vector2(3.985, 3.985)
+texture = ExtResource("1_dl708")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -0.5)
+scale = Vector2(5.36, 5.36)
+shape = SubResource("RectangleShape2D_5q0u2")
